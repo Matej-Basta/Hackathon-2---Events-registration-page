@@ -38,7 +38,7 @@ export class Feature {
       modal.className = "form-container";
       modal.innerHTML = `<div class="center"><div>
         <label for="name">Name</label>
-        <input id="name" class="name" type="text" />
+        <input id="name" class="name" type="text"/>
       </div>
       <div>
         <label for="surname">Surname</label>
@@ -86,6 +86,11 @@ export class Feature {
           modal.querySelector(".age").value,
           modal.querySelector(".comment").value
         );
+
+        submitButton.parentNode.removeChild(submitButton);
+        const paragraph = document.createElement("p");
+        paragraph.innerHTML = "Registration successful.";
+        document.querySelector(".center").appendChild(paragraph);
       });
 
       document.body.appendChild(modal);
