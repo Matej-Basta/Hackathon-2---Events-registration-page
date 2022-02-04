@@ -36,17 +36,20 @@ export class Feature {
       console.log("works");
       const modal = document.createElement("div");
       modal.className = "form-container";
-      modal.innerHTML = `<div class="center"><div>
+      modal.innerHTML = `<div class="center"><div class="nameDiv">
         <label for="name">Name</label>
-        <input id="name" class="name" type="text"/>
+        <input id="name" class="name" type="text">
+        <p class="nameText"></p>
       </div>
-      <div>
+      <div class="surnameDiv">
         <label for="surname">Surname</label>
         <input id="surname" class="surname" type="text" />
+        <p class="surnameText"></p>
       </div>
-      <div>
+      <div class="emailDiv">
         <label for="email">Email</label
         ><input id="id" class="email" type="email" />
+        <p class="emailText"></p>
       </div>
       <div>
         <label for="phone">Phone</label
@@ -75,22 +78,43 @@ export class Feature {
         checkbox.classList.toggle("age");
       });
 
+      const name = modal.querySelector(".nameText");
+      const surname = modal.querySelector(".surnameText");
+      const email = modal.querySelector(".emailText");
+
       const submitButton = modal.querySelector(".button-form");
       submitButton.addEventListener("click", () => {
-        postingRegistration(
-          this.id,
-          modal.querySelector(".name").value,
-          modal.querySelector(".surname").value,
-          modal.querySelector(".email").value,
-          modal.querySelector(".number").value,
-          modal.querySelector(".age").value,
-          modal.querySelector(".comment").value
-        );
+        if (modal.querySelector(".name").value == "") {
+          name.innerHTML = "Name is required";
+        } else if (modal.querySelector(".surname").value == "") {
+          name.innerHTML = "";
+          surname.innerHTML = "Surname is required";
+        } else if (
+          modal.querySelector(".email").value == "" ||
+          !modal.querySelector(".email").value.includes("@") ||
+          !modal.querySelector(".email").value.includes(".")
+        ) {
+          surname.innerHTML = "";
+          email.innerHTML =
+            "Email is required in a proper format - xxxx@xxx.xxx";
+        } else {
+          email.innerHTML = "";
+          postingRegistration(
+            this.id,
+            modal.querySelector(".name").value,
+            modal.querySelector(".surname").value,
+            modal.querySelector(".email").value,
+            modal.querySelector(".number").value,
+            modal.querySelector(".age").value,
+            modal.querySelector(".comment").value
+          );
 
-        submitButton.parentNode.removeChild(submitButton);
-        const paragraph = document.createElement("p");
-        paragraph.innerHTML = "Registration successful.";
-        document.querySelector(".center").appendChild(paragraph);
+          submitButton.parentNode.removeChild(submitButton);
+          const paragraph = document.createElement("p");
+
+          paragraph.innerHTML = "Registration successful.";
+          document.querySelector(".center").appendChild(paragraph);
+        }
       });
 
       document.body.appendChild(modal);
