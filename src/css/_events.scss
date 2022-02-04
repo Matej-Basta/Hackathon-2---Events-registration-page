@@ -5,7 +5,7 @@
   flex-wrap: wrap;
 
   &__box {
-    width: 32%;
+    width: 31%;
     height: 15rem;
     padding: 1.5rem;
     text-align: center;
@@ -31,6 +31,7 @@
       color: #ffffff;
       padding: 10px 20px 10px 20px;
       text-decoration: none;
+      margin: 2rem;
     }
 
     &__button:hover {
