@@ -1,1 +1,25 @@
+.featured-event {
+  height: 50vh;
+  display: flex;
+  background-color: pink;
+  padding: 2rem;
+  justify-content: space-around;
 
+  &__image {
+    height: 100;
+  }
+
+  &__info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__button {
+    display: block;
+    height: 7vh;
+    width: 10%;
+    align-self: flex-end;
+  }
+}
