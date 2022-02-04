@@ -22,7 +22,11 @@ export class EventPrague {
 
     buttonMore.addEventListener("click", () => {
       document.querySelector(".featured").innerHTML = "";
-      this.element.classList.toggle("selected");
+      const all = document.querySelectorAll(".other-events__box");
+      all.forEach((element) => {
+        element.classList.remove("selected");
+      });
+      this.element.classList.add("selected");
       const newFeature = new Feature(
         this.id,
         this.name,
