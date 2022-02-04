@@ -1,3 +1,5 @@
+import { postingRegistration } from "./postingRegistration";
+
 //creating a class for featured event
 export class Feature {
   constructor(id, name, date, description, image) {
@@ -32,6 +34,55 @@ export class Feature {
     const button = this.element.querySelector(".featured-event__button");
     button.addEventListener("click", () => {
       console.log("works");
+      const modal = document.createElement("div");
+      modal.className = "form-container";
+      modal.innerHTML = `<div class="center"><div>
+        <label for="name">Name</label>
+        <input id="name" class="name" type="text" />
+      </div>
+      <div>
+        <label for="surname">Surname</label>
+        <input id="surname" class="surname" type="text" />
+      </div>
+      <div>
+        <label for="email">Email</label
+        ><input id="id" class="email" type="email" />
+      </div>
+      <div>
+        <label for="phone">Phone</label
+        ><input id="phone" class="number" type="number" />
+      </div>
+      <div>
+        <label for="age">"I'm old enough to participate" </label>
+
+        <input class="age" type="checkbox" value="older" id="age" />
+      </div>
+      <div>
+        <label for="comments">Comments</label>
+        <input class="comment" id="comments" type="textarea" />
+      </div>
+      <button class="button-form">Submit</button>
+      <button class="button-close">Close</button></div>`;
+
+      const closeButton = modal.querySelector(".button-close");
+      closeButton.addEventListener("click", () => {
+        document.body.removeChild(modal);
+      });
+
+      const submitButton = modal.querySelector(".button-form");
+      submitButton.addEventListener("click", () => {
+        postingRegistration(
+          this.id,
+          modal.querySelector(".name").value,
+          modal.querySelector(".surname").value,
+          modal.querySelector(".email").value,
+          modal.querySelector(".number").value,
+          modal.querySelector(".age").value,
+          modal.querySelector(".comment").value
+        );
+      });
+
+      document.body.appendChild(modal);
     });
   }
 

@@ -1,15 +1,32 @@
 .form-container {
-    background-color: blue;
-    width: 40%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    height:90vh;
-    justify-content: space-around;
+  background-color: rgba(155, 155, 155, 0.8);
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  height: 100vh;
+
+  position: fixed;
+  top: 8px;
+  left: 0;
+  z-index: 1;
 }
 
 .button-form {
-    display: block;
-    width: 30%;
+  display: block;
+  width: 30%;
+}
+
+.center {
+  background-color: white;
+  width: 30%;
+  height: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: solid black 2px;
+  align-items: center;
 }
