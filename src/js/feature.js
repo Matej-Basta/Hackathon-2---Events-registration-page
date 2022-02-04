@@ -27,6 +27,12 @@ export class Feature {
           </p>
         </div>
         <button class="featured-event__button">Register</button>`;
+
+    //adding a functionality to the button
+    const button = this.element.querySelector(".featured-event__button");
+    button.addEventListener("click", () => {
+      console.log("works");
+    });
   }
 
   placingFeatureIntoDom() {
