@@ -54,8 +54,9 @@ export class Feature {
       </div>
       <div>
         <label for="age">"I'm old enough to participate" </label>
-
-        <input class="age" type="checkbox" value="older" id="age" />
+ 
+        <input type="checkbox" class="trial" value="older" id="age" name="age"/>
+        <input type='hidden' class="age" value='younger' name='age'>
       </div>
       <div>
         <label for="comments">Comments</label>
@@ -67,6 +68,11 @@ export class Feature {
       const closeButton = modal.querySelector(".button-close");
       closeButton.addEventListener("click", () => {
         document.body.removeChild(modal);
+      });
+
+      const checkbox = modal.querySelector(".trial");
+      checkbox.addEventListener("click", () => {
+        checkbox.classList.toggle("age");
       });
 
       const submitButton = modal.querySelector(".button-form");
