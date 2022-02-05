@@ -133,7 +133,7 @@ export class Feature {
       document.body.appendChild(modal);
     });
   }
-  //function that appends the featured element on the page, however I did not use it, because I forgot :D
+  //function that appends the featured element on the page
   placingFeatureIntoDom() {
     document.querySelector(".featured").appendChild(this.element);
   }
